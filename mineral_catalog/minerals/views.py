@@ -84,6 +84,10 @@ def minerals_create(request):
                 pass
             obj.save()
 
-
-
     return HttpResponse("get the minerals data from json")
+
+
+
+def mineral_list(request):
+    minerals = Minerals.objects.all()
+    return render(request, 'minerals/list.html', {'minerals':minerals})
