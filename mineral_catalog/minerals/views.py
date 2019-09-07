@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Minerals
 from django.db import IntegrityError
+#https://stackoverflow.com/questions/2170228/iterate-over-model-instance-field-names-and-values-in-template
+from django.core import serializers
+
 
 import json
 
@@ -90,4 +93,8 @@ def minerals_create(request):
 
 def mineral_list(request):
     minerals = Minerals.objects.all()
-    return render(request, 'minerals/list.html', {'minerals':minerals})
+    return render(request, 'minerals/index.html', {'minerals':minerals})
+
+def mineral_detail(request, pk):
+    mineral = get_object_or_404(Minerals, pk=pk)
+    return render(request, 'minerals/detail.html', {'mineral':mineral})

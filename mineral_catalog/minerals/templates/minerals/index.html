@@ -2,6 +2,6 @@
 
 {% block content %}
   {% for mineral in minerals %}
-    <h2> {{ mineral.name }} </h2>
+    <h3><a href="{% url 'minerals:detail' pk=mineral.pk %}">{{ mineral.name }}</a></h3>
   {% endfor %}
 {% endblock %}

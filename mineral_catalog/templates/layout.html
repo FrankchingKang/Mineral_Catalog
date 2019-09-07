@@ -1,9 +1,15 @@
+
+{% load static from staticfiles %}
 <!doctype html>
+
 <html>
     <head>
         <title>Minerals Catalog</title>
-        </head>
+        <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    </head>
     <body>
+      <div class="bounds">
         {% block content %}{% endblock %}
+      </div>
     </body>
 </html>
