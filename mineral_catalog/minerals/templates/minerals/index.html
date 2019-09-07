@@ -1,7 +1,17 @@
 {% extends "layout.html" %}
 
 {% block content %}
-  {% for mineral in minerals %}
-    <h3><a href="{% url 'minerals:detail' pk=mineral.pk %}">{{ mineral.name }}</a></h3>
-  {% endfor %}
+
+<div class="bounds">
+  <div class="grid-100">
+    <ul class="minerals__container">
+      {% for mineral in minerals %}
+        <li class="minerals__item">
+          <a href="{% url 'minerals:detail' pk=mineral.pk %}">{{ mineral.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
 {% endblock %}
