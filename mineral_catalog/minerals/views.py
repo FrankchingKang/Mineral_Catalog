@@ -4,7 +4,7 @@ from .models import Minerals
 from django.db import IntegrityError
 #https://stackoverflow.com/questions/2170228/iterate-over-model-instance-field-names-and-values-in-template
 from django.core import serializers
-
+import random
 
 import json
 
@@ -97,4 +97,8 @@ def mineral_list(request):
 
 def mineral_detail(request, pk):
     mineral = get_object_or_404(Minerals, pk=pk)
+    return render(request, 'minerals/detail.html', {'mineral':mineral})
+
+def mineral_random_detail(request):
+    mineral = random.choice(Minearls.objects.all())
     return render(request, 'minerals/detail.html', {'mineral':mineral})
