@@ -90,7 +90,6 @@ def minerals_create(request):
     return HttpResponse("get the minerals data from json")
 
 
-
 def mineral_list(request):
     minerals = Minerals.objects.all()
     return render(request, 'minerals/index.html', {'minerals':minerals})
@@ -100,5 +99,5 @@ def mineral_detail(request, pk):
     return render(request, 'minerals/detail.html', {'mineral':mineral})
 
 def mineral_random_detail(request):
-    mineral = random.choice(Minearls.objects.all())
+    mineral = random.choice(Minerals.objects.all())
     return render(request, 'minerals/detail.html', {'mineral':mineral})
